@@ -186,6 +186,8 @@ Another strategy would be to use a plugin like [fluent-plugin-concat](https://gi
 * You can use an [offical fluentd docker](https://github.com/fluent/fluentd-docker-image) image as a base, (choose the debian based version, as alpine linux doesn't support systemd).
 * Bind mount `/var/log/journal` into your container.
 
+> ### Rapid/Heavy logging (container logs) in journal can be observerd when docker daemon logging driver is set to journald and the stdout is used in fluentd.conf. https://github.com/reevoo/fluent-plugin-systemd/issues/64
+
 ### Example
 
 For an example of a full working setup including the plugin, take a look at [the fluentd kubernetes daemonset](https://github.com/fluent/fluentd-kubernetes-daemonset)
